@@ -5,7 +5,7 @@ ArrayList balls;
 // Noise animation 
 
 void setup() {
-  size(1600, 900);
+  size(800, 800);
   frameRate(60);
   wind = new WindField();
   balls = new ArrayList();
