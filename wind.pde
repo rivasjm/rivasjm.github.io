@@ -5,7 +5,7 @@ ArrayList balls;
 // Noise animation 
 
 void setup() {
-  size(800, 800);
+  size(1200, 800);
   frameRate(60);
   wind = new WindField();
   balls = new ArrayList();
@@ -97,7 +97,7 @@ class WindField {
 
 
 
-    float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.4, 0.6, 0, TWO_PI);
+    float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.1, 0.9, 0, TWO_PI);
 
 
 
@@ -121,12 +121,12 @@ class WindField {
         PVector pos = new PVector(x, y);
 
         PVector dir = this.getWind(x, y);
-        dir.mult(20);
+        dir.mult(30);
 
 
 
         float mag = dir.mag();
-        int red = int(map(mag, 5, 20, 0, 255));
+        int red = int(map(mag, 5, 17, 0, 255));
         int green = int(map(mag, 5, 20, 255, 0));
         color c = color(red, green, 100);
         stroke(c);
