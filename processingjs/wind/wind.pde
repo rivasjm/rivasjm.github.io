@@ -121,7 +121,7 @@ class WindField {
         PVector pos = new PVector(x, y);
 
         PVector dir = this.getWind(x, y);
-        dir.mult(20);
+        dir.mult(30);
 
 
 
