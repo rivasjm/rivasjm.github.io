@@ -97,7 +97,7 @@ class WindField {
 
 
 
-    float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.3, 0.7, 0, TWO_PI);
+    float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.4, 0.7, 0, TWO_PI);
 
 
 
