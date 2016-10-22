@@ -1,6 +1,6 @@
 
 WindField wind;
-ArrayList<Ball> balls;
+ArrayList balls;
 
 // Noise animation 
 
@@ -8,21 +8,23 @@ void setup() {
   size(1600, 900);
   frameRate(60);
   wind = new WindField();
-  balls = new ArrayList<Ball>();
+  balls = new ArrayList();
 }
 
 void draw() {
   background(0);
+
   wind.show();
   wind.update();
 
-  for (Ball b : balls) {
-    PVector f = wind.getWind(int(b.pos.x), int(b.pos.y)).mult(0.5);
+  for (int i = 0; i < balls.size(); i++) {
+    Ball b = (Ball) balls.get(i);
+    PVector f = wind.getWind(int(b.pos.x), int(b.pos.y));
+    f.mult(0.5);
     b.applyForce(f);
     b.show();
   }
 
-  // Check collisions
 }
 
 void mousePressed() {
@@ -93,10 +95,19 @@ class WindField {
     // x and y are screen coordinates
     // Wind vector is created as angle+magnitude
 
+
+
     float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.4, 0.6, 0, TWO_PI);
+
+
+
     float mag = map(noise((x+magOffset)*expansor+curr, (y+magOffset)*expansor+curr), 0.3, 0.7, 0, 1);
 
-    return PVector.fromAngle(angle).setMag(mag);
+    PVector v = new PVector(cos(angle), sin(angle)); 
+    v.mult(mag);
+    
+    return v;
+
   }
 
   void show(int columns, int rows) {
@@ -105,8 +116,14 @@ class WindField {
         int x = int(map(i, 0, 39, 20, width-20));
         int y = int(map(j, 0, 39, 20, height-20));
 
+
+
         PVector pos = new PVector(x, y);
-        PVector dir = this.getWind(x, y).mult(20);
+
+        PVector dir = this.getWind(x, y);
+        dir.mult(20);
+
+
 
         float mag = dir.mag();
         int red = int(map(mag, 5, 20, 0, 255));
