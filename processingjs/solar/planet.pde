@@ -63,9 +63,6 @@ class Planet {
     if (trail.length > trailSize) {
       trail = (PVector[]) subset(trail, 0, trailSize);
     }
-    
-        fill(200);
-    ellipse(100, 100, 20, 20);
 
     for (int i=0; i<childs.size(); i++) {//Planet p : childs) {
       Planet p = (Planet) childs.get(i);

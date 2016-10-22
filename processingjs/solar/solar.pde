@@ -21,38 +21,38 @@ void draw() {
   sun.update();
   sun.show();
 
-  //stroke(255);
-  //if (mousePressed) {
+  stroke(255);
+  if (mousePressed) {
     
-  //  PVector dir = new PVector(mouseX-pressPos.x, mouseY-pressPos.y);
-  //  float angle = atan2(plane.x, plane.y) - atan2(dir.x, dir.y);
-  //  //println(degrees(angle));
+    PVector dir = new PVector(mouseX-pressPos.x, mouseY-pressPos.y);
+    float angle = atan2(plane.x, plane.y) - atan2(dir.x, dir.y);
+    //println(degrees(angle));
     
-  //  fill(255);
-  //  textSize(16);
-  //  text(int(dir.mag()), mouseX, mouseY);
+    fill(255);
+    textSize(16);
+    text(int(dir.mag()), mouseX, mouseY);
     
-  //  translate(pressPos.x, pressPos.y);
-  //  rotate(angle);
-  //  line(0, 0, 0, dir.mag());
+    translate(pressPos.x, pressPos.y);
+    rotate(angle);
+    line(0, 0, 0, dir.mag());
     
-  //  for (int i=0; i<40; i++) {
-  //     float inc = lerp(-dir.mag(), -10*dir.mag(), i/20.0);
-  //     point(0, inc);
-  //  }
+    for (int i=0; i<40; i++) {
+       float inc = lerp(-dir.mag(), -10*dir.mag(), i/20.0);
+       point(0, inc);
+    }
     
-  //  pushMatrix();
-  //  rotate(PI/6.0);
-  //  line(0, 0, 0, constrain(dir.mag()*0.4, 5, 20));
-  //  popMatrix();
+    pushMatrix();
+    rotate(PI/6.0);
+    line(0, 0, 0, constrain(dir.mag()*0.4, 5, 20));
+    popMatrix();
     
-  //  pushMatrix();
-  //  rotate(-PI/6.0);
-  //  line(0, 0, 0, constrain(dir.mag()*0.4, 5, 20));
-  //  popMatrix();
+    pushMatrix();
+    rotate(-PI/6.0);
+    line(0, 0, 0, constrain(dir.mag()*0.4, 5, 20));
+    popMatrix();
 
     
-  //}
+  }
 }
 
 PVector pressPos;
