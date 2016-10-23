@@ -22,8 +22,8 @@ class WindField {
   PVector getWind(int x, int y) {
     // x and y are screen coordinates
     // Wind vector is created as angle+magnitude
-    float angle = map(noise((x+angleOffset)*expansor+curr, (y+angleOffset)*expansor+curr), 0.4, 0.7, 0, TWO_PI);
-    float mag = map(noise((x+magOffset)*expansor+curr, (y+magOffset)*expansor+curr), 0.3, 0.7, 0, 1);
+    float angle = map(noise((x+angleOffset)*expansor, (y+angleOffset)*expansor, curr), 0.4, 0.7, 0, TWO_PI);
+    float mag = map(noise((x+magOffset)*expansor, (y+magOffset)*expansor, curr), 0.3, 0.7, 0, 1);
 
     PVector v = new PVector(cos(angle), sin(angle)); 
     v.mult(mag);
